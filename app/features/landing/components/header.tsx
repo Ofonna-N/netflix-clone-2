@@ -1,5 +1,13 @@
-import { Box, Button, Container, MenuItem, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  InputAdornment,
+  MenuItem,
+  TextField,
+} from "@mui/material";
 import Logo from "~/assets/flixclonev1.svg";
+import TranslateIcon from "@mui/icons-material/Translate";
 
 export default function Header() {
   return (
@@ -42,8 +50,17 @@ export default function Header() {
             sx={{
               minWidth: "150px",
             }}
+            slotProps={{
+              input: {
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <TranslateIcon fontSize={"small"} />
+                  </InputAdornment>
+                ),
+              },
+            }}
           >
-            {["English", "Spanish", "French"].map((language) => {
+            {["English", "Spanish"].map((language) => {
               return (
                 <MenuItem key={language} value={language}>
                   {language}
