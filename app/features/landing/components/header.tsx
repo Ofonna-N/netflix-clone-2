@@ -11,7 +11,12 @@ import TranslateIcon from "@mui/icons-material/Translate";
 
 export default function Header() {
   return (
-    <Box component={"header"}>
+    <Box
+      component={"header"}
+      sx={{
+        zIndex: 5,
+      }}
+    >
       <Container
         sx={{
           padding: "1em",
