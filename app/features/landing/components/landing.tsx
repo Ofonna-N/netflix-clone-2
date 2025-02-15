@@ -1,6 +1,6 @@
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import Header from "./header";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import Hero from "./hero";
 
 export default function Landing() {
   return (
@@ -8,69 +8,51 @@ export default function Landing() {
       <Box
         component={"main"}
         sx={{
+          position: "relative",
           height: "100vh",
-          //   minHeight: "500px",
           display: "flex",
           flexDirection: "column",
-          //   backgroundColor: "wheat",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background:
+              "linear-gradient(150deg, rgba(0, 0, 0, 0.79) 25%, rgba(255,255,255,0) 100%)",
+            zIndex: 2,
+          },
+          "&::after": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background:
+              "linear-gradient(10deg, rgba(0, 0, 0, 0.79) 15%, rgba(255,255,255,0) 100%)",
+            zIndex: 2,
+          },
         }}
       >
-        <Header />
         <Box
+          component={"img"}
+          src={
+            "https://assets.nflxext.com/ffe/siteui/vlv3/f268d374-734d-474f-ad13-af5ba87ef9fc/web/US-en-20250210-TRIFECTA-perspective_5cc3f8aa-0c98-40f5-96f7-ac7e4af57d4a_medium.jpg"
+          }
+          alt="hero image"
           sx={{
-            backgroundColor: "GrayText",
-            flex: 1,
-            display: "flex",
-            flexDirection: "column",
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            objectFit: "cover",
+            objectPosition: "center",
+            zIndex: 1,
           }}
-        >
-          <Box
-            sx={{
-              flexGrow: 1,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              gap: "1em",
-              maxWidth: "sm",
-              mx: "auto",
-              textAlign: "center",
-            }}
-          >
-            <Typography variant="h1">
-              Unlimited movies, TV shows, and more
-            </Typography>
-            <Typography>Starts at $7.99. Cancel anytime.</Typography>
-            <Typography component={"h3"}>
-              Ready to watch? Enter your email to create or restart your
-              membership.
-            </Typography>
-            <Box
-              sx={{
-                display: "flex",
-                gap: "1em",
-                alignItems: "center",
-                // backgroundColor: "green",
-                width: "100%",
-              }}
-            >
-              <TextField
-                placeholder="Email address"
-                sx={{ flex: 1 }}
-                color="secondary"
-              />
-              <Button
-                variant="contained"
-                size="large"
-                sx={{ alignSelf: "stretch" }}
-                endIcon={<ArrowForwardIosIcon />}
-              >
-                Get Started
-              </Button>
-            </Box>
-          </Box>
-          <Box sx={{ backgroundColor: "black", height: "150px" }}>B</Box>
-        </Box>
+        />
+        <Header />
+        <Hero />
       </Box>
     </Box>
   );
