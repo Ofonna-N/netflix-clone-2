@@ -1,3 +1,10 @@
+import { Box } from "@mui/material";
+import NavBar from "./nav_bar";
+
 export default function Landing() {
-  return <div>landing</div>;
+  return (
+    <Box>
+      <NavBar />
+    </Box>
+  );
 }
