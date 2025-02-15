@@ -1,5 +1,5 @@
 import { Box, Button, Container, MenuItem, TextField } from "@mui/material";
-import Logo from "public/flixclonev1.svg";
+import Logo from "~/assets/flixclonev1.svg";
 
 export default function Header() {
   return (
