@@ -71,7 +71,7 @@ export default function Hero() {
           </Button>
         </Box>
       </Box>
-      <Box sx={{ backgroundColor: "black", height: "150px" }}>B</Box>
+      <Box sx={{ backgroundColor: "black", height: "100px" }}>B</Box>
     </Box>
   );
 }
