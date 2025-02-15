@@ -50,6 +50,7 @@ export default function Header() {
             sx={{
               minWidth: "150px",
             }}
+            color="secondary"
             slotProps={{
               input: {
                 startAdornment: (
