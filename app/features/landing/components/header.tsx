@@ -1,13 +1,13 @@
 import { Box, Button, Container, MenuItem, TextField } from "@mui/material";
 import Logo from "public/flixclonev1.svg";
 
-export default function NavBar() {
+export default function Header() {
   return (
-    <Box component={"nav"}>
+    <Box component={"header"}>
       <Container
         sx={{
           padding: "1em",
-          backgroundColor: "black",
+          //   backgroundColor: "black",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
@@ -18,7 +18,7 @@ export default function NavBar() {
           src={Logo}
           alt="Logo"
           sx={{
-            width: "100px",
+            width: "130px",
             transform: "translateY(5px)",
           }}
         />
