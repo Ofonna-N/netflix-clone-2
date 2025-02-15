@@ -7,10 +7,10 @@ export default function Header() {
       <Container
         sx={{
           padding: "1em",
-          //   backgroundColor: "black",
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
+          flexWrap: "wrap",
         }}
       >
         <Box
@@ -18,7 +18,12 @@ export default function Header() {
           src={Logo}
           alt="Logo"
           sx={{
-            width: "130px",
+            width: {
+              xs: "100px",
+              sm: "150px",
+              md: "180px",
+              lg: "200px",
+            },
             transform: "translateY(5px)",
           }}
         />
@@ -26,6 +31,7 @@ export default function Header() {
         <Box
           sx={{
             display: "flex",
+            flexWrap: "wrap",
             gap: "1em",
           }}
         >
