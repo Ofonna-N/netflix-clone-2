@@ -1,6 +1,13 @@
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 
-const appTheme = createTheme({});
+const appTheme = createTheme({
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#e50914",
+    },
+  },
+});
 
 export default function MuiThemeProviders({
   children,
