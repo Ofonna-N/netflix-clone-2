@@ -1,9 +1,6 @@
+import Landing from "~/features/landing/components/landing";
 import type { Route } from "./+types/home";
-import { Box } from "@mui/material";
-
 
 export default function Home() {
-  return <Box>
-    Hello
-  </Box>;
+  return <Landing />;
 }
