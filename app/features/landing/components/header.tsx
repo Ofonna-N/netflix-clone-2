@@ -74,7 +74,9 @@ export default function Header() {
               );
             })}
           </TextField>
-          <Button variant="contained">Sign In</Button>
+          <Button variant="contained" sx={{ textTransform: "capitalize" }}>
+            Sign In
+          </Button>
         </Box>
       </Container>
     </Box>
