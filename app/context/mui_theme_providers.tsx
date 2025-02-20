@@ -1,4 +1,5 @@
 import {
+  alpha,
   createTheme,
   CssBaseline,
   responsiveFontSizes,
@@ -15,11 +16,27 @@ const appTheme = responsiveFontSizes(
       secondary: {
         main: "#ffffff",
       },
+      info: {
+        main: "#80808066",
+        light: alpha("#80808066", 0.4),
+        lighter: alpha("#80808066", 0.1),
+      },
     },
     typography: {
       h1: {
         fontSize: "3.375rem", // 54px to rem
         fontWeight: 700, // bold
+      },
+      h3: {
+        fontSize: "1.5rem", // 24px to rem
+        fontWeight: 700, // bold
+      },
+    },
+    components: {
+      MuiButton: {
+        defaultProps: {
+          sx: { textTransform: "capitalize" },
+        },
       },
     },
   })

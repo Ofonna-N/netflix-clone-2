@@ -81,8 +81,8 @@ export default function Hero() {
 
           backgroundImage: `radial-gradient(
                     50% 500% at 50% -420%,
-                    rgba(64, 97, 231, 0.4) 80%,
-                    rgba(0, 0, 0, 0.1) 100%
+                    #4061e7 80%,
+                    #000000 100%
                 )`,
           "&::after": {
             content: '""',
@@ -91,17 +91,17 @@ export default function Hero() {
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundColor: "yellow",
+            backgroundColor: "yellow", //#192247
             borderRadius: "inherit",
             transform: "translateY(-5px)",
             zIndex: -1,
             backgroundImage: `linear-gradient(
               to right,
-              rgba(33, 13, 22, 1) 16%,
-              rgba(184, 40, 105, 1),
-              rgba(229, 9, 20, 1),
-              rgba(184, 40, 105, 1),
-              rgba(33, 13, 22, 1) 84%
+              #210d16 16%,
+              #b82869,
+              #e50914,
+              #b82869,
+              #210d16 84%
           )`,
           },
         }}
