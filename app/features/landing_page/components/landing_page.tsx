@@ -4,6 +4,7 @@ import Hero from "./hero";
 import BackgroundImage from "./background_image";
 import LearnMoreSection from "./learn_more_section";
 import MoreReasonsToWatchSection from "./more_reasons_to_watch_section";
+import FaqsSection from "./faqs_section";
 
 export default function LandingPage() {
   return (
@@ -45,6 +46,7 @@ export default function LandingPage() {
       </Box>
       <LearnMoreSection />
       <MoreReasonsToWatchSection />
+      <FaqsSection />
     </Box>
   );
 }
