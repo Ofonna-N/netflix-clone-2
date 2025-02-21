@@ -4,75 +4,84 @@ import popcornIcon from "~/assets/popcorn.svg";
 
 export default function LearnMoreSection() {
   return (
-    <Container
-      maxWidth="lg"
+    <Box
       sx={{
-        position: "relative",
+        height: "100px",
+        backgroundColor: "black",
       }}
     >
-      <Box
-        component={motion.div}
-        initial={{ scale: 1 }}
-        whileHover={"hover"}
-        variants={{
-          hover: {
-            scale: 1.05,
-          },
-        }}
+      <Container
+        maxWidth="lg"
         sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          gap: 1,
-          position: "absolute",
-          top: "-50px",
-          width: "100%",
-          left: 0,
-          zIndex: 10000,
-          transition: "transform 0.3s ease-in-out",
+          position: "relative",
         }}
       >
         <Box
-          component={"img"}
-          src={popcornIcon}
-          alt={"popcorn icon"}
-          sx={{
-            width: "70px",
-            height: "70px",
-            transform: "translateY(-5px)",
-          }}
-        />
-        <Box
           component={motion.div}
+          initial={{ scale: 1 }}
+          whileHover={"hover"}
           variants={{
             hover: {
-              backgroundImage:
-                "linear-gradient(91deg,rgb(124, 67, 173) 0%,rgb(26, 36, 114) 99.51%)",
+              scale: 1.05,
             },
           }}
           sx={{
-            flexGrow: 1,
             display: "flex",
             justifyContent: "space-between",
+            alignItems: "center",
             gap: 1,
-            backgroundImage:
-              "linear-gradient(91deg, #482566 0%, #161d52 99.51%)",
-            py: 2,
-            px: 3,
-            borderRadius: 3,
+            position: "absolute",
+            top: "-50px",
+            width: "100%",
+            left: 0,
+            zIndex: 10000,
+            transition: "transform 0.3s ease-in-out",
           }}
         >
-          <Box>
-            <Typography variant="h3">
-              The Flixclone you love for just $9.99.
-            </Typography>
-            <Typography>Get our most affordable, ad-supported plan.</Typography>
+          <Box
+            component={"img"}
+            src={popcornIcon}
+            alt={"popcorn icon"}
+            sx={{
+              width: "70px",
+              height: "70px",
+              transform: "translateY(-5px)",
+            }}
+          />
+          <Box
+            component={motion.div}
+            variants={{
+              hover: {
+                backgroundImage:
+                  "linear-gradient(91deg,rgb(124, 67, 173) 0%,rgb(26, 36, 114) 99.51%)",
+              },
+            }}
+            sx={{
+              flexGrow: 1,
+              display: "flex",
+              justifyContent: "space-between",
+              gap: 1,
+              backgroundImage:
+                "linear-gradient(91deg, #482566 0%, #161d52 99.51%)",
+              py: 2,
+              px: 3,
+              borderRadius: 3,
+            }}
+          >
+            <Box>
+              <Typography variant="h3">
+                The Flixclone you love for just $9.99.
+              </Typography>
+              <Typography>
+                Get our most affordable, ad-supported plan.
+              </Typography>
+            </Box>
+            <Button variant="contained" color={"info"}>
+              Learn More
+            </Button>
           </Box>
-          <Button variant="contained" color={"info"}>
-            Learn More
-          </Button>
         </Box>
-      </Box>
-    </Container>
+      </Container>
+    </Box>
   );
 }

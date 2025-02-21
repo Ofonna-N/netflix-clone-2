@@ -3,6 +3,7 @@ import Header from "./header";
 import Hero from "./hero";
 import BackgroundImage from "./background_image";
 import LearnMoreSection from "./learn_more_section";
+import MoreReasonsToWatchSection from "./more_reasons_to_watch_section";
 
 export default function LandingPage() {
   return (
@@ -42,14 +43,9 @@ export default function LandingPage() {
         <Header />
         <Hero />
       </Box>
-      <Box
-        sx={{
-          height: "100px",
-          backgroundColor: "black",
-        }}
-      >
-        <LearnMoreSection />
-      </Box>
+
+      <LearnMoreSection />
+      <MoreReasonsToWatchSection />
     </Box>
   );
 }
