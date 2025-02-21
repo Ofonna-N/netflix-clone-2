@@ -1,31 +1,11 @@
-import {
-  alpha,
-  Box,
-  Button,
-  Container,
-  styled,
-  Typography,
-  type ButtonProps,
-} from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import Header from "./header";
 import Hero from "./hero";
 import BackgroundImage from "./background_image";
 import popcornIcon from "~/assets/popcorn.svg";
+import { motion } from "framer-motion";
 
 export default function LandingPage() {
-  const LearnMoreButton = styled(Button, {
-    shouldForwardProp: (prop) => prop !== "color",
-  })<ButtonProps>(({ theme }) => ({
-    width: 300,
-    variants: [
-      {
-        props: ({ color }) => alpha(color as string, 0.4),
-        style: {
-          color: theme.palette.success.main,
-        },
-      },
-    ],
-  }));
   return (
     <Box>
       <Box
@@ -65,7 +45,7 @@ export default function LandingPage() {
       </Box>
       <Box
         sx={{
-          height: "200px",
+          height: "100px",
           backgroundColor: "black",
         }}
       >
@@ -76,6 +56,14 @@ export default function LandingPage() {
           }}
         >
           <Box
+            component={motion.div}
+            initial={{ scale: 1 }}
+            whileHover={"hover"}
+            variants={{
+              hover: {
+                scale: 1.05,
+              },
+            }}
             sx={{
               display: "flex",
               justifyContent: "space-between",
@@ -87,13 +75,6 @@ export default function LandingPage() {
               left: 0,
               zIndex: 10000,
               transition: "transform 0.3s ease-in-out",
-              ":hover": {
-                transform: "scale(1.05)",
-              },
-              ":hover #learn-more-div": {
-                backgroundImage:
-                  "linear-gradient(91deg,rgb(124, 67, 173) 0%,rgb(26, 36, 114) 99.51%)",
-              },
             }}
           >
             <Box
@@ -107,7 +88,13 @@ export default function LandingPage() {
               }}
             />
             <Box
-              id="learn-more-div"
+              component={motion.div}
+              variants={{
+                hover: {
+                  backgroundImage:
+                    "linear-gradient(91deg,rgb(124, 67, 173) 0%,rgb(26, 36, 114) 99.51%)",
+                },
+              }}
               sx={{
                 flexGrow: 1,
                 display: "flex",
@@ -118,7 +105,6 @@ export default function LandingPage() {
                 py: 2,
                 px: 3,
                 borderRadius: 3,
-                transition: "all 0.8s ease-in-out",
               }}
             >
               <Box>
