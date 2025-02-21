@@ -25,7 +25,7 @@ const appTheme = responsiveFontSizes(
     typography: {
       h1: {
         fontSize: "3.375rem", // 54px to rem
-        // bold
+        fontWeight: 700, // bold
       },
       h2: {
         fontSize: "2rem", // 32px to rem

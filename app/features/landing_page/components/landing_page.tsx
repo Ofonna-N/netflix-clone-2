@@ -43,7 +43,6 @@ export default function LandingPage() {
         <Header />
         <Hero />
       </Box>
-
       <LearnMoreSection />
       <MoreReasonsToWatchSection />
     </Box>
