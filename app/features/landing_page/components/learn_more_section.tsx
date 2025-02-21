@@ -6,7 +6,10 @@ export default function LearnMoreSection() {
   return (
     <Box
       sx={{
-        height: "100px",
+        height: {
+          xs: "auto",
+          md: "100px",
+        },
         backgroundColor: "black",
       }}
     >
@@ -30,12 +33,17 @@ export default function LearnMoreSection() {
             justifyContent: "space-between",
             alignItems: "center",
             gap: 1,
-            position: "absolute",
+            position: {
+              xs: "relative",
+              md: "absolute",
+            },
             top: "-50px",
             width: "100%",
             left: 0,
             zIndex: 10000,
             transition: "transform 0.3s ease-in-out",
+            flexWrap: "wrap",
+            px: 3,
           }}
         >
           <Box
@@ -45,7 +53,10 @@ export default function LearnMoreSection() {
             sx={{
               width: "70px",
               height: "70px",
-              transform: "translateY(-5px)",
+              transform: {
+                xs: "translateY(15px)",
+                md: "translateY(-5px)",
+              },
             }}
           />
           <Box
@@ -66,6 +77,7 @@ export default function LearnMoreSection() {
               py: 2,
               px: 3,
               borderRadius: 3,
+              flexWrap: "wrap",
             }}
           >
             <Box>
