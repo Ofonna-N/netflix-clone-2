@@ -38,7 +38,7 @@ const reasonsToJoinContent: {
 
 export default function MoreReasonsToWatchSection() {
   return (
-    <Box component={"section"} sx={{ backgroundColor: "black", pb: 5 }}>
+    <Box component={"section"} sx={{ pb: 5 }}>
       <Container>
         <Typography variant="h2" mb={3}>
           More Reasons to Join

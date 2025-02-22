@@ -74,7 +74,6 @@ export default function Hero() {
       </Box>
       <Box
         sx={{
-          backgroundColor: "black",
           height: "100px",
           borderRadius: "50% 50% 0 0",
           position: "relative",

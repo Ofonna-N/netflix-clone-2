@@ -21,6 +21,10 @@ const appTheme = responsiveFontSizes(
         light: alpha("#80808066", 0.4),
         lighter: alpha("#80808066", 0.1),
       },
+      background: {
+        default: "black",
+        paper: "#141414",
+      },
     },
     typography: {
       h1: {

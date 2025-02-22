@@ -50,7 +50,7 @@ const faqs: {
 
 export default function FaqsSection() {
   return (
-    <Box component={"section"} sx={{ py: 3, backgroundColor: "black" }}>
+    <Box component={"section"} sx={{ py: 3 }}>
       <Container>
         <Typography variant="h3" component="h2" gutterBottom>
           Frequently Asked Questions What is Netflix?

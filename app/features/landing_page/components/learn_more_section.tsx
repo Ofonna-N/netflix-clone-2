@@ -26,7 +26,6 @@ export default function LearnMoreSection() {
           xs: "auto",
           md: "100px",
         },
-        backgroundColor: "black",
       }}
     >
       <Container

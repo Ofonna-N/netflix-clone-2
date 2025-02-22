@@ -1,13 +1,14 @@
 import {
   Box,
-  Button,
   Container,
   InputAdornment,
+  Link,
   MenuItem,
   TextField,
 } from "@mui/material";
 import Logo from "~/assets/flixclonev1.svg";
 import TranslateIcon from "@mui/icons-material/Translate";
+import { Link as RouterLink } from "react-router";
 
 export default function Header() {
   return (
@@ -46,6 +47,7 @@ export default function Header() {
             display: "flex",
             flexWrap: "wrap",
             gap: "1em",
+            alignItems: "center",
           }}
         >
           <TextField
@@ -74,9 +76,23 @@ export default function Header() {
               );
             })}
           </TextField>
-          <Button variant="contained" sx={{ textTransform: "capitalize" }}>
+          <Link
+            component={RouterLink}
+            to="login"
+            underline="none"
+            sx={{
+              textTransform: "capitalize",
+              backgroundColor: "primary.main",
+              color: "primary.contrastText",
+              padding: "0.35em 1em",
+              borderRadius: "4px",
+              "&:hover": {
+                backgroundColor: "primary.dark",
+              },
+            }}
+          >
             Sign In
-          </Button>
+          </Link>
         </Box>
       </Container>
     </Box>
