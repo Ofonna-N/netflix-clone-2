@@ -6,9 +6,10 @@ import {
   MenuItem,
   TextField,
 } from "@mui/material";
-import Logo from "~/assets/flixclonev1.svg";
+
 import TranslateIcon from "@mui/icons-material/Translate";
 import { Link as RouterLink } from "react-router";
+import Logo from "~/components/logo";
 
 export default function Header() {
   return (
@@ -27,21 +28,7 @@ export default function Header() {
           flexWrap: "wrap",
         }}
       >
-        <Box
-          component={"img"}
-          src={Logo}
-          alt="Logo"
-          sx={{
-            width: {
-              xs: "100px",
-              sm: "150px",
-              md: "180px",
-              lg: "200px",
-            },
-            transform: "translateY(5px)",
-          }}
-        />
-
+        <Logo />
         <Box
           sx={{
             display: "flex",
