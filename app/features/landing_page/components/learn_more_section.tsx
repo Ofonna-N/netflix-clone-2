@@ -6,6 +6,7 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
+  IconButton,
   Paper,
   Typography,
 } from "@mui/material";
@@ -14,7 +15,7 @@ import { useState } from "react";
 import popcornIcon from "~/assets/popcorn.svg";
 import squidGameTitle from "~/assets/squid game title.png";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-
+import CloseIcon from "@mui/icons-material/Close";
 const metaData = ["2025", "TV-MA", "Show", "Thrillers, Dramas"];
 
 export default function LearnMoreSection() {
@@ -137,6 +138,18 @@ export default function LearnMoreSection() {
               position: "relative",
             }}
           >
+            <IconButton
+              sx={{
+                position: "absolute",
+                top: 10,
+                right: 10,
+                zIndex: 100,
+              }}
+              onClick={() => setOpenLearnMoreDialog(false)}
+            >
+              <CloseIcon fontSize="large" />
+            </IconButton>
+
             <Box
               component={"img"}
               src="https://occ-0-853-851.1.nflxso.net/dnm/api/v6/Z-WHgqd_TeJxSuha8aZ5WpyLcX8/AAAABVV9gbt3EJsyDMLSD-0Jk01mW5lvHJX1STWaCA0VYXvolLOLAtSc3ufX4YLlJUFrL3QIzieFK_1tQJGhJbPCKqElfp48VWpHAjyx.webp?r=513"
