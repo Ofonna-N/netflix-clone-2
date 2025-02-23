@@ -31,7 +31,10 @@ export default function Login() {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.45)",
+          backgroundColor: {
+            xs: "black",
+            sm: "rgba(0, 0, 0, 0.45)",
+          },
           zIndex: 2,
         },
       }}
