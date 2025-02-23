@@ -141,8 +141,8 @@ export default function LearnMoreSection() {
             <IconButton
               sx={{
                 position: "absolute",
-                top: 10,
-                right: 10,
+                top: 5,
+                right: 5,
                 zIndex: 100,
               }}
               onClick={() => setOpenLearnMoreDialog(false)}
