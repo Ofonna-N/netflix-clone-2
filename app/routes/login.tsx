@@ -49,7 +49,7 @@ export default function Login() {
             py: 4,
             px: 6,
             mt: 8,
-            pb: 15,
+            pb: 10,
             maxWidth: "450px",
             backgroundColor: alpha(backgroundColor, 0.7),
             position: "relative",
@@ -78,7 +78,7 @@ export default function Login() {
             <Typography
               variant="h2"
               component="h1"
-              sx={{ mb: 4, zIndex: 10, position: "relative" }}
+              sx={{ mb: 1, zIndex: 10, position: "relative" }}
             >
               Sign In
             </Typography>
