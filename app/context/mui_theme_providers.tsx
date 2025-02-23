@@ -22,7 +22,7 @@ const appTheme = responsiveFontSizes(
         lighter: alpha("#80808066", 0.1),
       },
       background: {
-        default: "black",
+        default: "#000000", // black hex
         paper: "#141414",
       },
     },
