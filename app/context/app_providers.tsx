@@ -1,3 +1,4 @@
+import AuthProvider from "./auth_provider";
 import MuiThemeProviders from "./mui_theme_providers";
 
 export default function AppProviders({
@@ -5,5 +6,9 @@ export default function AppProviders({
 }: {
   children: React.ReactNode;
 }) {
-  return <MuiThemeProviders>{children}</MuiThemeProviders>;
+  return (
+    <MuiThemeProviders>
+      <AuthProvider>{children}</AuthProvider>
+    </MuiThemeProviders>
+  );
 }
