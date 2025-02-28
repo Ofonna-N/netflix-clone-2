@@ -59,6 +59,9 @@ export default function LoginForm() {
           label="Email or phone number"
           variant="outlined"
           color="secondary"
+          type="email"
+          value={"demoaccount@yahoo.com"}
+          disabled
         />
         <TextField
           fullWidth
@@ -67,6 +70,8 @@ export default function LoginForm() {
           variant="outlined"
           type="password"
           color="secondary"
+          value={"password"}
+          disabled
         />
         <Button variant="contained" size="large">
           Sign In
