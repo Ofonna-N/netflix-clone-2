@@ -1,19 +1,43 @@
-import { createContext, useMemo, type ReactNode } from "react";
+import { createContext, useMemo, useState, type ReactNode } from "react";
 
 // TODO: Look at react docs for new context api
 export default function AuthProvider({ children }: { children: ReactNode }) {
-  const user: User = useMemo(() => {
-    return {
-      name: "John Doe",
-      email: "testemail@yahoo.com",
-    };
-  }, []);
-  return <AuthContext.Provider value={null}>{children}</AuthContext.Provider>;
+  const [toggleUser, setToggleUser] = useState(false);
+
+  const user: User | null = useMemo(() => {
+    return toggleUser
+      ? {
+          name: "John Doe",
+          email: "testemail@yahoo.com",
+        }
+      : null;
+  }, [toggleUser]);
+
+  function toggleUserAccount() {
+    setToggleUser((prev) => !prev);
+  }
+
+  const contextValue = useMemo(
+    () => ({
+      user,
+      toggleUserAccount,
+    }),
+    [user]
+  );
+
+  return (
+    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
+  );
 }
+
+type AuthContextT = {
+  user: User | null;
+  toggleUserAccount: () => void;
+};
 
 type User = {
   name: string;
   email: string;
 };
 
-export const AuthContext = createContext<User | null>(null);
+export const AuthContext = createContext<AuthContextT>({} as any);
