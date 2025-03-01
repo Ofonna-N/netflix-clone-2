@@ -11,9 +11,11 @@ import {
   useTheme,
 } from "@mui/material";
 import { blue } from "@mui/material/colors";
+import { useNavigate } from "react-router";
 
 export default function LoginForm() {
   const backgroundColor = useTheme().palette.background.default;
+  let navigate = useNavigate();
   return (
     <Paper
       sx={{
@@ -73,7 +75,13 @@ export default function LoginForm() {
           value={"password"}
           disabled
         />
-        <Button variant="contained" size="large">
+        <Button
+          variant="contained"
+          size="large"
+          onClick={() => {
+            navigate("/browse");
+          }}
+        >
           Sign In
         </Button>
         <Typography sx={{ textAlign: "center" }}>OR</Typography>
