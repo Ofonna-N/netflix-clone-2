@@ -8,7 +8,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
       email: "testemail@yahoo.com",
     };
   }, []);
-  return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={null}>{children}</AuthContext.Provider>;
 }
 
 type User = {
