@@ -9,7 +9,7 @@ import {
 import Logo from "~/components/logo";
 import browseNavLinks from "~/features/browse/constants/browse_navlinks";
 import DropdownMenu from "~/features/browse/components/dropdown_menu";
-
+import { Link as RouterLink } from "react-router";
 export default function Browse() {
   const isMinMd = useMediaQuery((theme) => theme.breakpoints.up("md"));
 
@@ -57,16 +57,18 @@ export default function Browse() {
                 zIndex: 1000,
               }}
             >
-              <Logo
-                logoProps={{
-                  sx: {
-                    width: {
-                      xs: "100px",
-                      sm: "150px",
+              <Link component={RouterLink} to="/browse">
+                <Logo
+                  logoProps={{
+                    sx: {
+                      width: {
+                        xs: "100px",
+                        sm: "150px",
+                      },
                     },
-                  },
-                }}
-              />
+                  }}
+                />
+              </Link>
               {!isMinMd ? (
                 <DropdownMenu />
               ) : (
