@@ -19,7 +19,7 @@ export default function Browse() {
         position: "relative",
       }}
     >
-      <AppBar position="fixed" color="transparent">
+      <AppBar position="fixed" color="transparent" sx={{ boxShadow: "none" }}>
         <Container maxWidth="xl">
           <Toolbar>
             <Box
