@@ -16,6 +16,7 @@ export default function DropdownMenu() {
         sx={{
           display: "flex",
           alignItems: "center",
+          cursor: "pointer",
         }}
         onPointerEnter={(e) => {
           setAnchorEl(e.currentTarget);
