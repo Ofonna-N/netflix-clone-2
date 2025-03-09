@@ -23,6 +23,7 @@ export default function SquidGameDialog(props: Props) {
   const navigate = useNavigate();
   return (
     <Dialog
+      closeAfterTransition
       open={openDialog}
       onClose={() => openDialogHanlder(false)}
       aria-labelledby="alert-dialog-title"
@@ -106,6 +107,7 @@ export default function SquidGameDialog(props: Props) {
           ></Box>
         </Box>
         <DialogContentText
+          component={"div"}
           id="alert-dialog-description"
           sx={{ p: 3, backgroundColor: "#161616" }}
         >
