@@ -55,6 +55,18 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
             opacity: 0.5,
             zIndex: 999,
           },
+          "::after": {
+            content: "''",
+            display: "block",
+            position: "absolute",
+            bottom: "0",
+            left: "0",
+            width: "100%",
+            height: "100%",
+            backgroundImage:
+              "linear-gradient(to top, rgba(0,0,0,1) 5%,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 100%)",
+            zIndex: 999,
+          },
         }}
       >
         <Box
@@ -158,6 +170,32 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
               </Button>
             </Box>
           </Box>
+        </Box>
+      </Box>
+      <Box
+        sx={{
+          width: "100%",
+          height: "150px",
+          bgcolor: "wheat",
+          // transform: "translateY(-20px)",
+          position: "relative",
+          zIndex: 1000,
+          display: "flex",
+          alignItems: "center",
+          px: 4,
+        }}
+      >
+        <Box
+          sx={{
+            backgroundColor: "violet",
+            width: "100px",
+            height: "100px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Typography>Test</Typography>
         </Box>
       </Box>
     </Box>
