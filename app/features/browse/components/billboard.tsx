@@ -9,7 +9,6 @@ import { useEffect } from "react";
 type Props = {
   billboardMovie: Movie | undefined;
 };
-const baseURL = "https://image.tmdb.org/t/p/original/";
 
 export default function Billboard(props: Props) {
   const { billboardMovie } = props;
@@ -65,7 +64,10 @@ export default function Billboard(props: Props) {
     >
       <Box
         component={"img"}
-        src={baseURL + billboardMovie?.backdrop_path}
+        src={
+          import.meta.env.VITE_TMBD_API_IMAGE_URL +
+          billboardMovie?.backdrop_path
+        }
         alt={billboardMovie?.title}
         sx={{
           width: "100%",

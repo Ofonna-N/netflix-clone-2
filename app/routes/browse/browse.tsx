@@ -1,14 +1,7 @@
 import type { NowPlayingMoviesResponse } from "~/types/now_playing_response";
 import type { Route } from "./+types/browse";
 import { isRouteErrorResponse } from "react-router";
-import {
-  Box,
-  Button,
-  ButtonBase,
-  IconButton,
-  styled,
-  Typography,
-} from "@mui/material";
+import { Box, Button, styled, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import Billboard from "~/features/browse/components/billboard";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
@@ -23,7 +16,7 @@ const CustomSwiperSlide = styled(SwiperSlide)({
   width: "300px !important",
   height: "150px !important",
 });
-const baseURL = "https://image.tmdb.org/t/p/original/"; //TODO: move to env
+
 export default function Browse({ loaderData }: Route.ComponentProps) {
   const nowPlayingMovies =
     loaderData?.props.nowPlayingMovies instanceof Error
@@ -88,7 +81,10 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
               <CustomSwiperSlide>
                 <Box
                   component={"img"}
-                  src={baseURL + movie.backdrop_path}
+                  src={
+                    import.meta.env.VITE_TMBD_API_IMAGE_URL +
+                    movie.backdrop_path
+                  }
                   sx={{
                     width: "100%",
                     height: "100%",
