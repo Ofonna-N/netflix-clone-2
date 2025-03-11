@@ -4,17 +4,36 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import favicon from "~/assets/favicon.svg";
 import type { Movie } from "~/types/movie";
 import { useAnimate } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
-  billboardMovie: Movie | undefined;
+  billboardMovies: Movie[] | undefined;
 };
 
 export default function Billboard(props: Props) {
-  const { billboardMovie } = props;
+  const { billboardMovies } = props;
 
   const [motionRef] = useAnimate<HTMLDivElement>();
 
+  const [billboardMovie, setBillboardMovie] = useState(
+    billboardMovies?.[0] ?? undefined
+  );
+
+  // Randomly select a movie from the list of billboard movies every 10 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const randomIndex = Math.floor(
+        Math.random() * (billboardMovies?.length ?? 0)
+      );
+      setBillboardMovie(billboardMovies?.[randomIndex]);
+    }, 10000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  });
+
+  // Animate the billboard movie title
   useEffect(() => {
     motionRef.current.animate([{ opacity: 0 }, { opacity: 1 }], {
       duration: 2000,
