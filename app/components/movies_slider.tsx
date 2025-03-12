@@ -86,49 +86,51 @@ export default function MoviesSlider(props: Props) {
           );
         })}
       </Box>
-      <Box
-        sx={{
-          position: "absolute",
-          // top: "50%",
-          bottom: "0",
-          left: "0",
-          // transform: "translateY(-50%)",
-          width: "100%",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "stretch",
-          height: "150px",
-        }}
-      >
-        <Button
-          variant="contained"
-          color="info"
+      {movies && movies.length > 0 && (
+        <Box
           sx={{
-            height: "100%",
-            px: "0px",
-            minWidth: 0,
-            alignSelf: 1,
-            // backgroundColor: "wheat",
+            position: "absolute",
+            // top: "50%",
+            bottom: "0",
+            left: "0",
+            // transform: "translateY(-50%)",
+            width: "100%",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "stretch",
+            height: "150px",
           }}
-          onClick={() => swiper?.slidePrev()}
         >
-          <KeyboardArrowLeftIcon />
-        </Button>
-        <Button
-          variant="contained"
-          color="info"
-          sx={{
-            height: "100%",
-            px: "0px",
-            minWidth: 0,
-            alignSelf: 1,
-            // backgroundColor: "wheat",
-          }}
-          onClick={() => swiper?.slideNext()}
-        >
-          <KeyboardArrowRightIcon />
-        </Button>
-      </Box>
+          <Button
+            variant="contained"
+            color="info"
+            sx={{
+              height: "100%",
+              px: "0px",
+              minWidth: 0,
+              alignSelf: 1,
+              // backgroundColor: "wheat",
+            }}
+            onClick={() => swiper?.slidePrev()}
+          >
+            <KeyboardArrowLeftIcon />
+          </Button>
+          <Button
+            variant="contained"
+            color="info"
+            sx={{
+              height: "100%",
+              px: "0px",
+              minWidth: 0,
+              alignSelf: 1,
+              // backgroundColor: "wheat",
+            }}
+            onClick={() => swiper?.slideNext()}
+          >
+            <KeyboardArrowRightIcon />
+          </Button>
+        </Box>
+      )}
     </Box>
   );
 }

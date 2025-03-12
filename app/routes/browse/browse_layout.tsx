@@ -13,7 +13,7 @@ export default function BrowseLayout() {
   return (
     <Box>
       <NavBar />
-      <Outlet />;
+      <Outlet />
     </Box>
   );
 }

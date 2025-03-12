@@ -23,6 +23,11 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
       ? null
       : loaderData?.props.topRatedMovies;
 
+  const trendingMovies =
+    loaderData?.props.trendingMovies instanceof Error
+      ? null
+      : loaderData?.props.trendingMovies;
+
   return (
     <Box
       sx={{
@@ -30,6 +35,7 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
       }}
     >
       <Billboard billboardMovies={nowPlayingMovies?.results ?? []} />
+      <MoviesSlider title="Trending" movies={trendingMovies?.results} />
       <MoviesSlider title="Now Playing" movies={nowPlayingMovies?.results} />
       <MoviesSlider title="Popular" movies={popularMovies?.results} />
       <MoviesSlider title="Top Rated" movies={topRatedMovies?.results} />
@@ -54,6 +60,10 @@ export async function clientLoader() {
   );
   let topRatedMoviesData: MoviesResponse | Error = new Error(
     "Error loading top rated movies"
+  );
+
+  let trendingMoviesData: MoviesResponse | Error = new Error(
+    "Error loading trending movies"
   );
 
   try {
@@ -96,11 +106,24 @@ export async function clientLoader() {
     topRatedMoviesData = new Error("Error loading top rated movies");
   }
 
+  try {
+    const trendingMoviesResponse = await fetch(
+      "https://api.themoviedb.org/3/trending/all/day?language=en-US",
+      requestOption
+    );
+    if (trendingMoviesResponse.ok) {
+      trendingMoviesData = await trendingMoviesResponse.json();
+    }
+  } catch (err) {
+    trendingMoviesData = new Error("Error loading trending movies");
+  }
+
   return {
     props: {
       nowPlayingMovies: nowPlayingMoviesData,
       popularMovies: popularMoviesData,
       topRatedMovies: topRatedMoviesData,
+      trendingMovies: trendingMoviesData,
     },
   };
 }
