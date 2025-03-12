@@ -47,7 +47,6 @@ export default function SelectAccountView() {
             textProps={{ label: "Demo User" }}
             ButtonBaseProps={{
               onClick: () => {
-                console.log("toggle user account");
                 authContext.toggleUserAccount();
               },
             }}
@@ -64,7 +63,14 @@ export default function SelectAccountView() {
               }}
             />
           </SelectAccountProfile>
-          <SelectAccountProfile textProps={{ label: "Kids" }}>
+          <SelectAccountProfile
+            textProps={{ label: "Kids" }}
+            ButtonBaseProps={{
+              onClick: () => {
+                authContext.toggleUserAccount();
+              },
+            }}
+          >
             <Box
               component={"img"}
               src={kidsProfilePicPlaceholder}
