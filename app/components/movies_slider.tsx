@@ -57,7 +57,8 @@ export default function MoviesSlider(props: Props) {
               <Box
                 component={"img"}
                 src={
-                  import.meta.env.VITE_TMBD_API_IMAGE_URL + movie.backdrop_path
+                  import.meta.env.VITE_TMBD_API_IMAGE_URL_500 +
+                  movie.backdrop_path
                 }
                 sx={{
                   width: "100%",
