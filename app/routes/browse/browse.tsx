@@ -5,12 +5,23 @@ import { Box, Typography } from "@mui/material";
 import Billboard from "~/features/browse/components/billboard";
 import "swiper/css";
 import MoviesSlider from "~/components/movies_slider";
+import type { MoviesResponse } from "~/types/movies_response";
 
 export default function Browse({ loaderData }: Route.ComponentProps) {
   const nowPlayingMovies =
     loaderData?.props.nowPlayingMovies instanceof Error
       ? null
       : loaderData?.props.nowPlayingMovies;
+
+  const popularMovies =
+    loaderData?.props.popularMovies instanceof Error
+      ? null
+      : loaderData?.props.popularMovies;
+
+  const topRatedMovies =
+    loaderData?.props.topRatedMovies instanceof Error
+      ? null
+      : loaderData?.props.topRatedMovies;
 
   return (
     <Box
@@ -20,26 +31,35 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
     >
       <Billboard billboardMovies={nowPlayingMovies?.results ?? []} />
       <MoviesSlider title="Now Playing" movies={nowPlayingMovies?.results} />
-      <MoviesSlider title="Now Playing" movies={nowPlayingMovies?.results} />
+      <MoviesSlider title="Popular" movies={popularMovies?.results} />
+      <MoviesSlider title="Top Rated" movies={topRatedMovies?.results} />
     </Box>
   );
 }
 
 export async function clientLoader() {
+  const baseUrl = "https://api.themoviedb.org/3/movie/";
+  const requestOption: RequestInit = {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
+      ["content-type"]: "application/json",
+    },
+  };
   let nowPlayingMoviesData: NowPlayingMoviesResponse | Error = new Error(
     "Error loading now playing movies"
+  );
+  let popularMoviesData: MoviesResponse | Error = new Error(
+    "Error loading popular movies"
+  );
+  let topRatedMoviesData: MoviesResponse | Error = new Error(
+    "Error loading top rated movies"
   );
 
   try {
     const nowPlayingMoviesRepsonse = await fetch(
-      "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
-      {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
-          ["content-type"]: "application/json",
-        },
-      }
+      baseUrl + "now_playing?language=en-US&page=1",
+      requestOption
     );
 
     if (nowPlayingMoviesRepsonse.ok) {
@@ -52,9 +72,35 @@ export async function clientLoader() {
     nowPlayingMoviesData = new Error("Error loading now playing movies");
   }
 
+  try {
+    const popularMoviesRepsonse = await fetch(
+      baseUrl + "popular?language=en-US&page=1",
+      requestOption
+    );
+    if (popularMoviesRepsonse.ok) {
+      popularMoviesData = await popularMoviesRepsonse.json();
+    }
+  } catch (err) {
+    popularMoviesData = new Error("Error loading popular movies");
+  }
+
+  try {
+    const topRatedMoviesResponse = await fetch(
+      baseUrl + "top_rated?language=en-US&page=1",
+      requestOption
+    );
+    if (topRatedMoviesResponse.ok) {
+      topRatedMoviesData = await topRatedMoviesResponse.json();
+    }
+  } catch (err) {
+    topRatedMoviesData = new Error("Error loading top rated movies");
+  }
+
   return {
     props: {
       nowPlayingMovies: nowPlayingMoviesData,
+      popularMovies: popularMoviesData,
+      topRatedMovies: topRatedMoviesData,
     },
   };
 }
