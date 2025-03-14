@@ -1,14 +1,13 @@
 import { Box, Button, styled, Typography } from "@mui/material";
 import { useState } from "react";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import favicon from "~/assets/favicon.svg";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import type { Movie } from "~/types/movie";
+import MovieSliderCard from "./movie_slider_card";
 
 const CustomSwiperSlide = styled(SwiperSlide)({
   position: "relative",
-  backgroundColor: "wheat",
   width: "300px !important",
   height: "150px !important",
 });
@@ -28,9 +27,8 @@ export default function MoviesSlider(props: Props) {
     <Box
       sx={{
         width: "95%",
-        // height: "150px",
         position: "relative",
-        zIndex: 1000,
+        zIndex: 1,
         mx: "auto",
         px: 4,
         mb: 4,
@@ -48,40 +46,19 @@ export default function MoviesSlider(props: Props) {
         centeredSlides
         sx={{
           position: "relative",
+          maxHeight: "150px",
         }}
         onSwiper={setSwiper}
       >
         {movies?.map((movie) => {
           return (
-            <CustomSwiperSlide>
-              <Box
-                component={"img"}
-                src={
-                  import.meta.env.VITE_TMBD_API_IMAGE_URL_500 +
-                  movie.backdrop_path
-                }
-                sx={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  position: "absolute",
-                  top: "0",
-                  left: "0",
-                  zIndex: 1,
-                }}
-              />
-              <Box
-                component={"img"}
-                alt="icon"
-                src={favicon}
-                sx={{
-                  width: 24,
-                  position: "absolute",
-                  top: 10,
-                  left: 10,
-                  zIndex: 1000,
-                }}
-              />
+            <CustomSwiperSlide
+              key={movie.id}
+              sx={{
+                maxHeight: "150px",
+              }}
+            >
+              <MovieSliderCard movie={movie} />
             </CustomSwiperSlide>
           );
         })}
@@ -90,10 +67,8 @@ export default function MoviesSlider(props: Props) {
         <Box
           sx={{
             position: "absolute",
-            // top: "50%",
             bottom: "0",
             left: "0",
-            // transform: "translateY(-50%)",
             width: "100%",
             display: "flex",
             justifyContent: "space-between",
@@ -109,7 +84,6 @@ export default function MoviesSlider(props: Props) {
               px: "0px",
               minWidth: 0,
               alignSelf: 1,
-              // backgroundColor: "wheat",
             }}
             onClick={() => swiper?.slidePrev()}
           >
@@ -123,7 +97,6 @@ export default function MoviesSlider(props: Props) {
               px: "0px",
               minWidth: 0,
               alignSelf: 1,
-              // backgroundColor: "wheat",
             }}
             onClick={() => swiper?.slideNext()}
           >
