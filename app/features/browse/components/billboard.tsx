@@ -45,7 +45,7 @@ export default function Billboard(props: Props) {
       ref={motionRef}
       sx={{
         width: "100%",
-        minHeight: "400px",
+        minHeight: "614px",
         maxHeight: "800px",
         position: "relative",
         top: "0",
