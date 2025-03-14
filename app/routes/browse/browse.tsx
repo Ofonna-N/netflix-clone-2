@@ -35,10 +35,18 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
       }}
     >
       <Billboard billboardMovies={nowPlayingMovies?.results ?? []} />
-      <MoviesSlider title="Trending" movies={trendingMovies?.results} />
-      <MoviesSlider title="Now Playing" movies={nowPlayingMovies?.results} />
-      <MoviesSlider title="Popular" movies={popularMovies?.results} />
-      <MoviesSlider title="Top Rated" movies={topRatedMovies?.results} />
+      <Box
+        sx={{
+          position: "relative",
+          zIndex: 800,
+          width: "100%",
+        }}
+      >
+        <MoviesSlider title="Trending" movies={trendingMovies?.results} />
+        <MoviesSlider title="Now Playing" movies={nowPlayingMovies?.results} />
+        <MoviesSlider title="Top Rated" movies={topRatedMovies?.results} />
+        <MoviesSlider title="Popular" movies={popularMovies?.results} />
+      </Box>
     </Box>
   );
 }
