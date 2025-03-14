@@ -128,11 +128,10 @@ export default function MovieSliderCard(props: Props) {
             }}
           >
             <Typography gutterBottom variant="h5" component="div">
-              Lizard
+              {movie.title ?? movie.name}
             </Typography>
             <Typography variant="body2" sx={{ color: "text.secondary" }}>
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
+              {movie.overview}
             </Typography>
           </CardContent>
         </Card>
