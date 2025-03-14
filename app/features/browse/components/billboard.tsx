@@ -45,7 +45,6 @@ export default function Billboard(props: Props) {
       ref={motionRef}
       sx={{
         width: "100%",
-        backgroundColor: "royalblue",
         minHeight: "400px",
         maxHeight: "800px",
         position: "relative",
@@ -65,7 +64,7 @@ export default function Billboard(props: Props) {
           backgroundSize: "cover",
           backgroundPosition: "center",
           opacity: 0.5,
-          zIndex: 999,
+          zIndex: 150,
         },
         "::after": {
           content: "''",
@@ -77,7 +76,7 @@ export default function Billboard(props: Props) {
           height: "100%",
           backgroundImage:
             "linear-gradient(to top, rgba(0,0,0,1) 5%,rgba(0,0,0,0) 20%,rgba(0,0,0,0) 100%)",
-          zIndex: 999,
+          zIndex: 150,
         },
       }}
     >
@@ -87,7 +86,7 @@ export default function Billboard(props: Props) {
           import.meta.env.VITE_TMBD_API_IMAGE_URL +
           billboardMovie?.backdrop_path
         }
-        alt={billboardMovie?.title}
+        alt={billboardMovie?.title ?? billboardMovie?.name}
         sx={{
           width: "100%",
           height: "100%",
@@ -110,7 +109,7 @@ export default function Billboard(props: Props) {
         <Box
           sx={{
             position: "absolute",
-            zIndex: 1000,
+            zIndex: 200,
             bottom: {
               xs: 50,
               lg: 200,
