@@ -23,7 +23,7 @@ export default function NavBar() {
               display: "flex",
               gap: 3,
               alignItems: "center",
-              zIndex: 1000,
+              zIndex: 300,
             }}
           >
             <Link component={RouterLink} to="/browse">
