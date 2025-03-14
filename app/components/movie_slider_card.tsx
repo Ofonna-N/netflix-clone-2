@@ -25,13 +25,12 @@ export default function MovieSliderCard(props: Props) {
         cursor: "pointer",
       }}
       onPointerEnter={() => {
-        console.log("clicked!");
         isHoveringRef.current = true;
         setTimeout(() => {
           if (isHoveringRef.current) {
             setShowContent(true);
           }
-        }, 700);
+        }, 500);
       }}
       onPointerLeave={() => {
         isHoveringRef.current = false;
@@ -91,7 +90,7 @@ export default function MovieSliderCard(props: Props) {
         <Card
           sx={{
             position: "relative",
-            width: "500px",
+            width: "400px",
           }}
         >
           <Box
