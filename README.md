@@ -1,18 +1,37 @@
-# Welcome to React Router!
-
+# Flixclone
+Welcome to the Netflix Clone project! This is a demo application created to explore and demonstrate the capabilities of React Router 7 along with other modern web technologies.
 A modern, production-ready template for building full-stack React applications using React Router.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+[Demo](https://netflix-clone-2-five.vercel.app/)
+
+![image](https://github.com/user-attachments/assets/a148f65e-9393-462f-9de2-7d5cb56da870)
+
 
 ## Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- **React Router 7**: Fully integrated to handle client-side routing with nested routes.
+
+- **TypeScript**: Strongly typed codebase for better scalability and maintainability.
+
+- **Material-UI & Emotion**: For clean and professional UI design.
+
+- **Tailwind CSS**: Utility-first CSS for rapid styling.
+
+- **Framer Motion**: Smooth and engaging animations to enhance user experience.
+
+- **Vite**: Lightning-fast bundler for optimized development and build workflows.
+
+- **Responsive Design**: Looks great on any device, from desktops to smartphones.
+
+- **Swiper.js**: Interactive and touch-friendly carousels for showcasing content.
+
+## Tech Stack 🛠️
+### Frameworks & Libraries
+- React 19
+- React Router 7
+- Material-UI
+- Framer Motion
+- Swiper.js
 
 ## Getting Started
 
@@ -68,15 +87,6 @@ docker build -f Dockerfile.bun -t my-app .
 docker run -p 3000:3000 my-app
 ```
 
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
 ### DIY Deployment
 
 If you're familiar with deploying Node applications, the built-in app server is production-ready.
@@ -90,11 +100,3 @@ Make sure to deploy the output of `npm run build`
 │   ├── client/    # Static assets
 │   └── server/    # Server-side code
 ```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
