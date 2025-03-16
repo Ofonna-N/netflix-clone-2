@@ -1,6 +1,6 @@
 # Flixclone
 Welcome to the Netflix Clone project! This is a demo application created to explore and demonstrate the capabilities of React Router 7 along with other modern web technologies.
-A modern, production-ready template for building full-stack React applications using React Router.
+This project represents an ongoing effort to research and implement a migration from Create React App to React Router 7, showcasing its potential as a modern, production-ready template for building full-stack React applications.
 
 [Demo](https://netflix-clone-2-five.vercel.app/)
 
@@ -12,6 +12,8 @@ A modern, production-ready template for building full-stack React applications u
 - **React Router 7**: Fully integrated to handle client-side routing with nested routes.
 
 - **TypeScript**: Strongly typed codebase for better scalability and maintainability.
+
+- **TanStack Query**: Advanced state management and server-state synchronization for seamless data handling.
 
 - **Material-UI & Emotion**: For clean and professional UI design.
 
