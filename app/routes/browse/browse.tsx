@@ -60,11 +60,13 @@ export async function clientLoader() {
     endpoint: "movie/now_playing?language=en-US&page=1",
     errMsgTitle: "Now Playing",
   });
+
   let popularMoviesData = await moviesAipClient.fetchMovies({
     cacheKey: "popularMovies",
     endpoint: "movie/popular?language=en-US&page=1",
     errMsgTitle: "Popular",
   });
+
   let topRatedMoviesData = await moviesAipClient.fetchMovies({
     cacheKey: "topRatedMovies",
     endpoint: "movie/top_rated?language=en-US&page=1",
