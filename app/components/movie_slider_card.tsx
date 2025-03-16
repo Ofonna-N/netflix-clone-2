@@ -70,7 +70,7 @@ export default function MovieSliderCard(props: Props) {
         }}
         anchorEl={imgAnchorElementRef.current}
         anchorOrigin={{
-          vertical: "center",
+          vertical: "top",
           horizontal: "center",
         }}
         transformOrigin={{
@@ -129,7 +129,14 @@ export default function MovieSliderCard(props: Props) {
             <Typography gutterBottom variant="h5" component="div">
               {movie.title ?? movie.name}
             </Typography>
-            <Typography variant="body2" sx={{ color: "text.secondary" }}>
+            <Typography
+              variant="body2"
+              sx={{
+                color: "text.secondary",
+                maxHeight: "100px",
+                overflow: "auto",
+              }}
+            >
               {movie.overview}
             </Typography>
           </CardContent>
