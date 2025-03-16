@@ -1,11 +1,10 @@
-import type { NowPlayingMoviesResponse } from "~/types/now_playing_response";
 import type { Route } from "./+types/browse";
 import { isRouteErrorResponse } from "react-router";
 import { Box, Typography } from "@mui/material";
 import Billboard from "~/features/browse/components/billboard";
 import "swiper/css";
 import MoviesSlider from "~/components/movies_slider";
-import type { MoviesResponse } from "~/types/movies_response";
+import MoviesApiClient from "~/features/browse/api/movies_api_client";
 
 export default function Browse({ loaderData }: Route.ComponentProps) {
   const nowPlayingMovies =
@@ -13,6 +12,7 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
       ? null
       : loaderData?.props.nowPlayingMovies;
 
+  console.log("nowPlayingMovies", nowPlayingMovies);
   const popularMovies =
     loaderData?.props.popularMovies instanceof Error
       ? null
@@ -52,79 +52,32 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
 }
 
 export async function clientLoader() {
-  const baseUrl = "https://api.themoviedb.org/3/movie/";
-  const requestOption: RequestInit = {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
-      ["content-type"]: "application/json",
-    },
-  };
-  let nowPlayingMoviesData: NowPlayingMoviesResponse | Error = new Error(
-    "Error loading now playing movies"
-  );
-  let popularMoviesData: MoviesResponse | Error = new Error(
-    "Error loading popular movies"
-  );
-  let topRatedMoviesData: MoviesResponse | Error = new Error(
-    "Error loading top rated movies"
-  );
+  const baseUrl = "https://api.themoviedb.org/3/";
+  const moviesAipClient = new MoviesApiClient(baseUrl);
 
-  let trendingMoviesData: MoviesResponse | Error = new Error(
-    "Error loading trending movies"
-  );
+  let nowPlayingMoviesData = await moviesAipClient.fetchMovies({
+    cacheKey: "nowPlayingMovies",
+    endpoint: "movie/now_playing?language=en-US&page=1",
+    errMsgTitle: "Now Playing",
+  });
 
-  try {
-    const nowPlayingMoviesRepsonse = await fetch(
-      baseUrl + "now_playing?language=en-US&page=1",
-      requestOption
-    );
+  let popularMoviesData = await moviesAipClient.fetchMovies({
+    cacheKey: "popularMovies",
+    endpoint: "movie/popular?language=en-US&page=1",
+    errMsgTitle: "Popular",
+  });
 
-    if (nowPlayingMoviesRepsonse.ok) {
-      nowPlayingMoviesData = await nowPlayingMoviesRepsonse.json();
-    } else {
-      nowPlayingMoviesData = new Error("Error loading now playing movies");
-    }
-  } catch (err) {
-    console.error(err);
-    nowPlayingMoviesData = new Error("Error loading now playing movies");
-  }
+  let topRatedMoviesData = await moviesAipClient.fetchMovies({
+    cacheKey: "topRatedMovies",
+    endpoint: "movie/top_rated?language=en-US&page=1",
+    errMsgTitle: "Top Rated",
+  });
 
-  try {
-    const popularMoviesRepsonse = await fetch(
-      baseUrl + "popular?language=en-US&page=1",
-      requestOption
-    );
-    if (popularMoviesRepsonse.ok) {
-      popularMoviesData = await popularMoviesRepsonse.json();
-    }
-  } catch (err) {
-    popularMoviesData = new Error("Error loading popular movies");
-  }
-
-  try {
-    const topRatedMoviesResponse = await fetch(
-      baseUrl + "top_rated?language=en-US&page=1",
-      requestOption
-    );
-    if (topRatedMoviesResponse.ok) {
-      topRatedMoviesData = await topRatedMoviesResponse.json();
-    }
-  } catch (err) {
-    topRatedMoviesData = new Error("Error loading top rated movies");
-  }
-
-  try {
-    const trendingMoviesResponse = await fetch(
-      "https://api.themoviedb.org/3/trending/all/day?language=en-US",
-      requestOption
-    );
-    if (trendingMoviesResponse.ok) {
-      trendingMoviesData = await trendingMoviesResponse.json();
-    }
-  } catch (err) {
-    trendingMoviesData = new Error("Error loading trending movies");
-  }
+  let trendingMoviesData = await moviesAipClient.fetchMovies({
+    cacheKey: "trendingMovies",
+    endpoint: "trending/all/day?language=en-US",
+    errMsgTitle: "Trending",
+  });
 
   return {
     props: {
