@@ -12,7 +12,6 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
       ? null
       : loaderData?.props.nowPlayingMovies;
 
-  console.log("nowPlayingMovies", nowPlayingMovies);
   const popularMovies =
     loaderData?.props.popularMovies instanceof Error
       ? null
