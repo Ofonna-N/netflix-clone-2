@@ -8,4 +8,7 @@ export default defineConfig(({ command }) => ({
     noExternal: command === "build" ? true : undefined,
   },
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
+  define: {
+    "process.env": process.env,
+  },
 }));

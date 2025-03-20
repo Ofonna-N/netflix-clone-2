@@ -51,30 +51,26 @@ export default function Browse({ loaderData }: Route.ComponentProps) {
   );
 }
 
-export async function clientLoader() {
-  const baseUrl = "https://api.themoviedb.org/3/";
+export async function loader() {
+  const baseUrl = process.env.TMBD_MOVIEDB_BASE_URL!;
   const moviesAipClient = new MoviesApiClient(baseUrl);
 
   let nowPlayingMoviesData = await moviesAipClient.fetchMovies({
-    cacheKey: "nowPlayingMovies",
     endpoint: "movie/now_playing?language=en-US&page=1",
     errMsgTitle: "Now Playing",
   });
 
   let popularMoviesData = await moviesAipClient.fetchMovies({
-    cacheKey: "popularMovies",
     endpoint: "movie/popular?language=en-US&page=1",
     errMsgTitle: "Popular",
   });
 
   let topRatedMoviesData = await moviesAipClient.fetchMovies({
-    cacheKey: "topRatedMovies",
     endpoint: "movie/top_rated?language=en-US&page=1",
     errMsgTitle: "Top Rated",
   });
 
   let trendingMoviesData = await moviesAipClient.fetchMovies({
-    cacheKey: "trendingMovies",
     endpoint: "trending/all/day?language=en-US",
     errMsgTitle: "Trending",
   });
