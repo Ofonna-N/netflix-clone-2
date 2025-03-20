@@ -2,7 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import profilePicPlaceholder from "~/assets/placeholder-profile.png";
 import kidsProfilePicPlaceholder from "~/assets/placeholder-kids-profile.png";
 import SelectAccountProfile from "./select_account_profile";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
+import { AddCircle } from "@mui/icons-material";
 import useAuthContext from "~/hooks/use_auth_context";
 
 export default function SelectAccountView() {
@@ -99,7 +99,7 @@ export default function SelectAccountView() {
             textProps={{ label: "Add Profile" }}
           >
             <Box sx={{ position: "relative", zIndex: 100000 }}>
-              <AddCircleIcon
+              <AddCircle
                 sx={{
                   width: "60%",
                   height: "60%",

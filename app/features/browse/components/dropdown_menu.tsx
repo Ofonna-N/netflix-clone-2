@@ -1,6 +1,6 @@
 import { Link, MenuItem, Popover } from "@mui/material";
 import { Link as RouterLink } from "react-router";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { ArrowDropDown } from "@mui/icons-material";
 import { useState } from "react";
 import browseNavLinks from "~/features/browse/constants/browse_navlinks";
 
@@ -23,7 +23,7 @@ export default function DropdownMenu() {
         }}
       >
         Browse
-        <ArrowDropDownIcon />
+        <ArrowDropDown />
       </Link>
       <Popover
         id={"browse-popover"}

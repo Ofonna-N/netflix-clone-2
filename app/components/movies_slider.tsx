@@ -1,8 +1,7 @@
 import { Box, Button, styled, Typography } from "@mui/material";
 import { useState } from "react";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+import { KeyboardArrowRight, KeyboardArrowLeft } from "@mui/icons-material";
 import type { Movie } from "~/types/movie";
 import MovieSliderCard from "./movie_slider_card";
 
@@ -87,7 +86,7 @@ export default function MoviesSlider(props: Props) {
             }}
             onClick={() => swiper?.slidePrev()}
           >
-            <KeyboardArrowLeftIcon />
+            <KeyboardArrowLeft />
           </Button>
           <Button
             variant="contained"
@@ -100,7 +99,7 @@ export default function MoviesSlider(props: Props) {
             }}
             onClick={() => swiper?.slideNext()}
           >
-            <KeyboardArrowRightIcon />
+            <KeyboardArrowRight />
           </Button>
         </Box>
       )}

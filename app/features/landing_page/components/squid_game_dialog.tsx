@@ -9,8 +9,7 @@ import {
   Paper,
 } from "@mui/material";
 import squidGameTitle from "~/assets/squid game title.png";
-import { ArrowForwardIos } from "@mui/icons-material";
-import { Close } from "@mui/icons-material";
+import { ArrowForwardIos, Close } from "@mui/icons-material";
 import { useNavigate } from "react-router";
 
 const metaData = ["2025", "TV-MA", "Show", "Thrillers, Dramas"];

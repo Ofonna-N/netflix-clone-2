@@ -1,6 +1,5 @@
 import { Box, Button, Typography } from "@mui/material";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import { PlayArrow, InfoOutlined } from "@mui/icons-material";
 import favicon from "~/assets/favicon.svg";
 import type { Movie } from "~/types/movie";
 import { useAnimate } from "framer-motion";
@@ -173,7 +172,7 @@ export default function Billboard(props: Props) {
               color="secondary"
               size="large"
               sx={{ flexGrow: 1 }}
-              startIcon={<PlayArrowIcon fontSize="large" />}
+              startIcon={<PlayArrow fontSize="large" />}
             >
               Play
             </Button>
@@ -182,7 +181,7 @@ export default function Billboard(props: Props) {
               color="info"
               size="large"
               sx={{ flexGrow: 1 }}
-              startIcon={<InfoOutlinedIcon fontSize="large" />}
+              startIcon={<InfoOutlined fontSize="large" />}
             >
               More Info
             </Button>
