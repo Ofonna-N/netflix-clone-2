@@ -83,7 +83,9 @@ export default function Billboard(props: Props) {
         component={"img"}
         src={
           import.meta.env.VITE_TMBD_API_IMAGE_URL +
-          billboardMovie?.backdrop_path
+          (billboardMovie?.backdrop_path ??
+            billboardMovies?.find((movie) => !!movie.backdrop_path)
+              ?.backdrop_path)
         }
         alt={billboardMovie?.title ?? billboardMovie?.name}
         sx={{
