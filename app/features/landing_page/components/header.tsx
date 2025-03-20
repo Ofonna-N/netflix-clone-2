@@ -7,7 +7,7 @@ import {
   TextField,
 } from "@mui/material";
 
-import TranslateIcon from "@mui/icons-material/Translate";
+import { Translate } from "@mui/icons-material";
 import { Link as RouterLink } from "react-router";
 import Logo from "~/components/logo";
 
@@ -49,7 +49,7 @@ export default function Header() {
               input: {
                 startAdornment: (
                   <InputAdornment position="start">
-                    <TranslateIcon fontSize={"small"} />
+                    <Translate fontSize={"small"} />
                   </InputAdornment>
                 ),
               },

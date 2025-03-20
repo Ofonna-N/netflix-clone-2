@@ -6,7 +6,7 @@ import {
   Container,
   Typography,
 } from "@mui/material";
-import AddIcon from "@mui/icons-material/Add";
+import { Add } from "@mui/icons-material";
 
 const faqs: {
   question: string;
@@ -61,7 +61,7 @@ export default function FaqsSection() {
             <Accordion square key={index} sx={{ p: 3, mb: 1 }}>
               <AccordionSummary
                 key={index}
-                expandIcon={<AddIcon fontSize="large" />}
+                expandIcon={<Add fontSize="large" />}
                 aria-controls="panel1-content"
                 id="panel1-header"
               >

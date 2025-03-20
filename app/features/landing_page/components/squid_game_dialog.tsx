@@ -9,8 +9,8 @@ import {
   Paper,
 } from "@mui/material";
 import squidGameTitle from "~/assets/squid game title.png";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import CloseIcon from "@mui/icons-material/Close";
+import { ArrowForwardIos } from "@mui/icons-material";
+import { Close } from "@mui/icons-material";
 import { useNavigate } from "react-router";
 
 const metaData = ["2025", "TV-MA", "Show", "Thrillers, Dramas"];
@@ -56,7 +56,7 @@ export default function SquidGameDialog(props: Props) {
             }}
             onClick={() => openDialogHanlder(false)}
           >
-            <CloseIcon fontSize="large" />
+            <Close fontSize="large" />
           </IconButton>
 
           <Box
@@ -140,7 +140,7 @@ export default function SquidGameDialog(props: Props) {
         <Button
           variant="contained"
           size="large"
-          endIcon={<ArrowForwardIosIcon />}
+          endIcon={<ArrowForwardIos />}
           onClick={() => navigate("/login")}
         >
           Get Started

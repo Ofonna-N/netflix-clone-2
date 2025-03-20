@@ -1,5 +1,5 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { ArrowForwardIos } from "@mui/icons-material";
 import SquidGameDialog from "./squid_game_dialog";
 import { useState } from "react";
 
@@ -71,7 +71,7 @@ export default function Hero() {
                 },
                 textTransform: "capitalize",
               }}
-              endIcon={<ArrowForwardIosIcon />}
+              endIcon={<ArrowForwardIos />}
               onClick={() => setOpenDialog(true)}
             >
               Get Started
