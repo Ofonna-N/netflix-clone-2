@@ -102,3 +102,27 @@ Make sure to deploy the output of `npm run build`
 │   ├── client/    # Static assets
 │   └── server/    # Server-side code
 ```
+
+## Continuous integration
+
+GitHub Actions runs `.github/workflows/ci.yml` on pull requests and pushes to
+`main`. It installs the locked dependencies with Node.js 22, checks TypeScript,
+and builds the application. Open the pull request's checks or the repository's
+Actions tab to see each step and its output.
+
+Run the same checks locally from the project folder:
+
+```bash
+npm ci
+npm run typecheck
+npm run build
+```
+
+These checks verify that the code type-checks and builds. They do not test browser
+interactions or fetch live movie data, and do not need a TMDB API key. A successful
+build does not establish that every application feature works.
+
+The workflow uses read-only repository permissions and pinned action revisions.
+`.github/CODEOWNERS` requests review from @Ofonna-N for workflow changes and
+changes to the ownership file. Requiring that approval before merging also needs
+an appropriate GitHub branch rule.
