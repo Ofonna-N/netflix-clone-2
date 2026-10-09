@@ -1,3 +1,5 @@
 # Review ownership for automation and its ownership rules.
 /.github/workflows/ @Ofonna-N
 /.github/CODEOWNERS @Ofonna-N
+/.github/scripts/ @Ofonna-N
+/.github/obaaf-policy.yml @Ofonna-N

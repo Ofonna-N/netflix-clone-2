@@ -1,0 +1,11 @@
+# Loaded from protected main, never from the proposed commit.
+ignore:
+  - rule: OBAAF-GHA-001
+    path: .github/workflows/obaaf-audit.yml
+    job: audit
+    reason: >-
+      This trusted workflow_run auditor reads PR files as data only. Its OBAAF
+      deploy key is read-only and stored in an environment restricted to main.
+      It executes only pinned OBAAF and audit code from protected main, uses no
+      PR artifacts or caches, and never builds or executes the proposed code.
+    until: '2027-01-09'

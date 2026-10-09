@@ -126,3 +126,30 @@ The workflow uses read-only repository permissions and pinned action revisions.
 `.github/CODEOWNERS` requests review from @Ofonna-N for workflow changes and
 changes to the ownership file. Requiring that approval before merging also needs
 an appropriate GitHub branch rule.
+
+## OBAAF configuration audit
+
+After each CI run completes, `OBAAF configuration audit` reads the triggering
+commit's files and reports an `OBAAF audit` status on that commit. Medium or high
+findings, invalid files, and audit setup failures produce a failed status.
+
+The auditor runs code and policy from protected `main`. It downloads the proposed
+commit as data; it does not run that commit's scripts, install its dependencies,
+or use artifacts or caches from its CI run. Proposed OBAAF ignore files cannot
+weaken the audit. Its scope is workflow and repository configuration, not
+application source-code vulnerabilities or browser behavior.
+
+A read-only deploy key grants access only to the private OBAAF repository. Its
+private half is stored as `OBAAF_DEPLOY_KEY` in the `obaaf-audit` environment,
+which permits only `main`. OBAAF is pinned to a reviewed commit. No private source
+or key is committed to this project or uploaded as a build artifact.
+
+The policy contains one documented, time-limited exception for the auditor's own
+private-repository key: OBAAF warns about secrets in `workflow_run` jobs even when
+the proposed code is only read as data. Review that exception before its expiry
+on January 9, 2027. Changes to the auditor or policy deserve security review.
+
+To inspect results, open the pull request's **OBAAF audit** status or the matching
+**OBAAF configuration audit** run in the Actions tab. The report appears in the
+run summary and audit step log. A passing result means no active findings at the
+configured threshold; it is not a guarantee that the repository is secure.
