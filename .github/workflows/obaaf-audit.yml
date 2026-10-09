@@ -1,0 +1,57 @@
+name: OBAAF configuration audit
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Audit configuration
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: obaaf-audit
+    permissions:
+      contents: read
+      statuses: write
+    steps:
+      - name: Check out trusted audit code from main
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Report pending audit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/obaaf_audit.py pending
+
+      - name: Set up Python
+        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6.0.0
+        with:
+          python-version: '3.13'
+
+      - name: Read pinned private checker
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        with:
+          repository: Ofonna-N/OBAAF
+          ref: a039d0c848efaa0576c560e94be1c6fa6691658b
+          path: trusted-obaaf
+          ssh-key: ${{ secrets.OBAAF_DEPLOY_KEY }}
+          persist-credentials: false
+
+      - name: Install trusted checker
+        run: python -m pip install ./trusted-obaaf
+
+      - name: Audit proposed files as data
+        run: python .github/scripts/obaaf_audit.py audit
+
+      - name: Report audit result
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/scripts/obaaf_audit.py finish
