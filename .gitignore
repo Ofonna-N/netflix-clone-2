@@ -8,3 +8,6 @@
 .env
 # Local Vercel build output
 /.vercel/
+
+# Python audit helper cache
+/.github/scripts/__pycache__/

@@ -153,3 +153,21 @@ To inspect results, open the pull request's **OBAAF audit** status or the matchi
 **OBAAF configuration audit** run in the Actions tab. The report appears in the
 run summary and audit step log. A passing result means no active findings at the
 configured threshold; it is not a guarantee that the repository is secure.
+
+### Reproduce the risk-and-fix demonstration
+
+Both `Type check and build` and `OBAAF audit` are required before merging into
+`main`. The audit starts after CI completes, so it may initially appear as an
+expected or pending status.
+
+1. Create a branch from `main`.
+2. In `.github/workflows/ci.yml`, replace the checkout action's full commit SHA
+   with `v6.0.0`, then open a pull request.
+3. The application checks can pass, but OBAAF reports `OBAAF-GHA-008` and blocks
+   the merge because the action reference is mutable.
+4. Restore the full SHA `1af3b93b6815bc44a9784bd300feb67ff0d1eeb3` and push the fix.
+5. Wait for CI and the subsequent OBAAF audit to pass before merging.
+
+This demonstration does not require exposing secrets or running malicious code.
+It shows why a configuration audit provides a different check from building the
+application.
